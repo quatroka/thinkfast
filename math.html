@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <title>Math Speed</title>
+</head>
+<body>
+  <div id="valor1">
+    <h2></h2>
+  </div>
+  <div id="valor2">
+    <h2></h2>
+  </div>
+  <div id="acertos">
+    Acertos: <h2>0</h2>
+  </div>
+  <div id="acertos">
+    Erros: <h2>0</h2>
+  </div>
+  <br>
+  <p>
+    Digite o resultado:
+    <i>pressione 'enter para confirmar'</i>
+  </p>
+  <input type="text" name="total" id="total" />
+
+  <script type="text/javascript">
+  var v1;
+  var v2;
+  var pontos;
+  var erros;
+  var segundos = 3; //3segundos
+  $(document).ready(function() {
+    gerar();
+    erros = 0;
+    pontos = 0;
+    v1 = 0;
+    v2 = 0;
+    t = 0;
+  });
+
+  function getRandom(max) {
+    return Math.floor(Math.random() * max + 1)
+  }
+
+  function gerar(){
+    v1 = getRandom(99);
+    v2 = getRandom(99);
+    t = v1+v2;
+    $("#valor1 h2").text(v1);
+    $("#valor2 h2").text(v2);
+
+  }
+
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+      if ($("#total").val() == (t)) {
+        pontos = pontos+1;
+        $("#acertos h2").text(pontos);
+        $("#erros h2").text(erros);
+        gerar();
+      $("#total").val('');
+      }
+      else {
+        erros = erros+1;
+        $("#acertos h2").text(pontos);
+        $("#erros h2").text(erros);
+        gerar();
+       $("#total").val('');
+      }
+
+    }
+
+  });
+
+//
+  //setTimeout(function(){
+  //  pontos = pontos-1;
+  //  $("#pontos h2").text(pontos);
+//    $("#total").text("");
+  //  gerar();
+
+//  }, segundos*1000)
+
+
+
+  </script>
+</body>
+</html>
