@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <!-- materialize.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  
+
   <title>Math Speed</title>
+  <style type="text/css">
+    #valor1, #valor2{
+      font-size: 40px;
+    }
+    .input-field label {
+     color: #4a148c;
+   }
+  </style>
 </head>
 <body>
-  <div id="valor1">
-    <h2></h2>
-  </div>
-  <div id="valor2">
-    <h2></h2>
-  </div>
-  <div id="acertos">
-    Acertos: <h2>0</h2>
-  </div>
-  <div id="acertos">
-    Erros: <h2>0</h2>
-  </div>
-  <br>
-  <p>
-    Digite o resultado:
-    <i>pressione 'enter para confirmar'</i>
-  </p>
-  <input type="text" name="total" id="total" />
+  <div class="container"><!-- Container -->
+    <div class="row"><!-- row -->
+      <div class="col s4 push-s4"><!-- col -->
+        <div class="card-panel"><!-- card -->
 
+          <nav>
+            <div class="nav-wrapper purple darken-4">
+              <a class="brand-logo center">ThinkFast</a>
+            </div>
+          </nav>
+
+          <div class="row"><!-- row -->
+            <div class="col s6"><!-- col -->
+              <div id="acertos">
+                <p class="center-align">
+                  Acertos: <span>0</span>
+                </p>
+              </div>
+            </div><!-- col -->
+            <div class="col s6"><!-- col -->
+              <div id="acertos">
+                <p class="center-align">
+                  Erros: <span>0</span>
+                </p>
+              </div>
+            </div><!-- col -->
+          </div><!-- row -->
+
+          <div class="row"><!-- row -->
+            <div class="col s6"><!-- col -->
+              <p id="valor1" class="center-align"></p>
+            </div><!-- col -->
+            <div class="col s6"><!-- col -->
+                <p id="valor2" class="center-align"></p>
+            </div><!-- col -->
+          </div><!-- row -->
+          
+          <blockquote class="left-align">
+            Digite o resultado:
+            <i>pressione 'enter para confirmar'</i>
+          </blockquote>
+
+          <div class="row"><!-- row -->
+            <div class="col s4 push-s4"><!-- col -->
+              <input type="text" name="total" id="total" />
+            </div><!-- col -->
+          </div><!-- row -->
+
+          
+        </div><!-- card -->
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- Container -->
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript">
-  var v1;
-  var v2;
-  var pontos;
-  var erros;
+    var v1;
+    var v2;
+    var pontos;
+    var erros;
   var segundos = 3; //3segundos
   $(document).ready(function() {
     gerar();
@@ -48,8 +97,8 @@
     v1 = getRandom(99);
     v2 = getRandom(99);
     t = v1+v2;
-    $("#valor1 h2").text(v1);
-    $("#valor2 h2").text(v2);
+    $("#valor1").text(v1);
+    $("#valor2").text(v2);
 
   }
 
@@ -57,17 +106,17 @@
     if(e.which == 13) {
       if ($("#total").val() == (t)) {
         pontos = pontos+1;
-        $("#acertos h2").text(pontos);
+        $("#acertos p span").text(pontos);
         $("#erros h2").text(erros);
         gerar();
-      $("#total").val('');
+        $("#total").val('');
       }
       else {
         erros = erros+1;
-        $("#acertos h2").text(pontos);
+        $("#acertos p span").text(pontos);
         $("#erros h2").text(erros);
         gerar();
-       $("#total").val('');
+        $("#total").val('');
       }
 
     }
@@ -85,6 +134,7 @@
 
 
 
-  </script>
+</script>
 </body>
 </html>
+  
