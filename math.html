@@ -2,20 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
   <!-- materialize.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
   <title>Math Speed</title>
-  <style type="text/css">
-    #valor1, #valor2{
-      font-size: 40px;
-    }
-    .input-field label {
-     color: #4a148c;
-   }
-  </style>
 </head>
 <body>
   <div class="container"><!-- Container -->
@@ -38,7 +28,7 @@
               </div>
             </div><!-- col -->
             <div class="col s6"><!-- col -->
-              <div id="acertos">
+              <div id="erros">
                 <p class="center-align">
                   Erros: <span>0</span>
                 </p>
@@ -61,7 +51,7 @@
           </blockquote>
 
           <div class="row"><!-- row -->
-            <div class="col s4 push-s4"><!-- col -->
+            <div class="input-field col s4 push-s4"><!-- col -->
               <input type="text" name="total" id="total" />
             </div><!-- col -->
           </div><!-- row -->
@@ -72,69 +62,10 @@
     </div><!-- row -->
   </div><!-- Container -->
 
+  <!-- Materialize -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script type="text/javascript">
-    var v1;
-    var v2;
-    var pontos;
-    var erros;
-  var segundos = 3; //3segundos
-  $(document).ready(function() {
-    gerar();
-    erros = 0;
-    pontos = 0;
-    v1 = 0;
-    v2 = 0;
-    t = 0;
-  });
-
-  function getRandom(max) {
-    return Math.floor(Math.random() * max + 1)
-  }
-
-  function gerar(){
-    v1 = getRandom(99);
-    v2 = getRandom(99);
-    t = v1+v2;
-    $("#valor1").text(v1);
-    $("#valor2").text(v2);
-
-  }
-
-  $(document).keypress(function(e) {
-    if(e.which == 13) {
-      if ($("#total").val() == (t)) {
-        pontos = pontos+1;
-        $("#acertos p span").text(pontos);
-        $("#erros h2").text(erros);
-        gerar();
-        $("#total").val('');
-      }
-      else {
-        erros = erros+1;
-        $("#acertos p span").text(pontos);
-        $("#erros h2").text(erros);
-        gerar();
-        $("#total").val('');
-      }
-
-    }
-
-  });
-
-//
-  //setTimeout(function(){
-  //  pontos = pontos-1;
-  //  $("#pontos h2").text(pontos);
-//    $("#total").text("");
-  //  gerar();
-
-//  }, segundos*1000)
-
-
-
-</script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
   

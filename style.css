@@ -1,0 +1,12 @@
+#valor1, #valor2{
+    font-size: 40px;
+}
+
+.input-field label {
+    color: #4a148c;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #4a148c;
+    box-shadow: 0 1px 0 0 #4a148c;
+}
